@@ -28,14 +28,12 @@ r = requests.post(auth_url,data=data,auth=(client_id,client_pass))
 data = r.json()
 access_token = data['access_token']
 
-pprint(access_token)
-
+#pprint(access_token)
 
 header = {
-    'Accept': 'application/json',
+    #'Accept': 'application/json',
     'Authorization': 'Bearer ' + access_token
 }
-
 
 response = requests.get(api_url, headers=header)
 

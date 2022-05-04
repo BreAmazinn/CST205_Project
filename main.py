@@ -20,28 +20,28 @@ app = Flask(__name__)
 client_id = "CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU"
 client_pass = "78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI"
 data = {"grant_type":"client_credentials"}
-api_url = "https://api.petfinder.com/v2/oauth2/token"
+auth_url = "https://api.petfinder.com/v2/oauth2/token"
+api_url = 'https://api.petfinder.com/v2/animals'
 
-r = requests.post(api_url,data=data,auth=(client_id,client_pass))
 
+r = requests.post(auth_url,data=data,auth=(client_id,client_pass))
 data = r.json()
+access_token = data['access_token']
 
-token = data['access_token']
+pprint(access_token)
 
-pprint(token)
 
-# url = 'https://api.petfinder.com/v2/animals'
+header = {
+    'Accept': 'application/json',
+    'Authorization': 'Bearer ' + access_token
+}
 
-# def get_new_token():
-#     auth_server_url = "https://api.petfinder.com/v2/oauth2/token"
-#     client_id = 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU'
-#     client_secret = '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
 
-#     taken_req_payload = {'grant_type': 'client_credentials'}
-#     auth=(client_id, client_secret))    
+response = requests.get(api_url, headers=header)
 
-# token = get_new_token()
+r1 = response.json()
 
+pprint(r1)
 
 # @app.route('/')
 # def home():

@@ -8,17 +8,27 @@ from pprint import pprint
 
 app = Flask(__name__)
 
-payload= {
-    'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
-    'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
-}
+# payload= {
+#     'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
+#     'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
+# }
 
-endpoint = 'https://api.petfinder.com/v2/animals'
+# endpoint = 'https://api.petfinder.com/v2/animals'
 
-r = requests.get(endpoint, params = payload)
+# r = requests.get(endpoint, params = payload)
+
+client_id = "CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU"
+client_pass = "78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI"
+data = {"grant_type":"client_credentials"}
+api_url = "https://api.petfinder.com/v2/oauth2/token"
+
+r = requests.post(api_url,data=data,auth=(client_id,client_pass))
 
 data = r.json()
-pprint(data)
+
+token = data['access_token']
+
+pprint(token)
 
 # url = 'https://api.petfinder.com/v2/animals'
 

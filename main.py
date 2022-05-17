@@ -39,10 +39,13 @@ response = requests.get(api_url, headers=header)
 
 r1 = response.json()
 
+
 #pprint(r1)
 
 @app.route('/')
 def home():
     return render_template('index.html', animals = r1, header = header)
 
-
+@app.route('/info')
+def info():
+    return render_template('index2.html', animals = r1, header = header)

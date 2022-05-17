@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 import random
@@ -7,16 +6,16 @@ import json
 import requests
 from pprint import pprint
 
+app = Flask(__name__)
 
+# payload= {
+#     'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
+#     'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
+# }
 
-payload= {
-    'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
-    'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
-}
+# endpoint = 'https://api.petfinder.com/v2/animals'
 
-endpoint = 'https://api.petfinder.com/v2/animals'
-
-r = requests.get(endpoint, params = payload)
+# r = requests.get(endpoint, params = payload)
 
 client_id = "CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU"
 client_pass = "78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI"
@@ -29,6 +28,7 @@ r = requests.post(auth_url,data=data,auth=(client_id,client_pass))
 data = r.json()
 access_token = data['access_token']
 
+#pprint(access_token)
 
 header = {
     #'Accept': 'application/json',
@@ -41,15 +41,8 @@ r1 = response.json()
 
 pprint(r1)
 
-# ------ Flask Application ------
-app = Flask(__name__)
-
-@app.route('/home')
-@app.route('/')
-def home():
-    return render_template('index.html', animals = r1)
+# @app.route('/')
+# def home():
+#     return render_template('index.html')
 
 
-# ------ Necessary for the application to open once you run the python file ------
-if __name__ == "__main__":
-    app.run(debug=True)

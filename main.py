@@ -48,13 +48,13 @@ r2 = typeResponse.json()
 # ------ Flask Application ------
 app = Flask(__name__)
 
-
+@app.route('/home')
 @app.route('/')
 def home():
     return render_template('index.html', animals = r1)
 
 @app.route('/b')
-def breedPage():
+def typePage():
     return render_template('page1.html', type = r2)
 
 # ------ Necessary for the application to open once you run the python file ------

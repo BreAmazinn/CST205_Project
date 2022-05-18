@@ -5,5 +5,9 @@
 }
 .image__img {
     height: auto;
-    width:auto;
+    width: auto;
+}
+#middle {
+    margin-right: 500px;
+
 }

@@ -53,9 +53,18 @@ app = Flask(__name__)
 def home():
     return render_template('index.html', animals = r1)
 
-@app.route('/b')
+@app.route('/animalType')
 def typePage():
-    return render_template('page1.html', type = r2)
+    return render_template('animalTypes.html', type = r2)
+
+@app.route('/breed/<variable>', methods=['GET', 'POST'])
+def breedPage(variable):
+    breed_url = f'https://api.petfinder.com/v2/types/{variable}/breeds'
+
+    breedResponse = requests.get(breed_url, headers=header)
+    r3 = breedResponse.json()
+
+    return render_template('animalBreed.html', breed = r3)
 
 # ------ Necessary for the application to open once you run the python file ------
 if __name__ == "__main__":

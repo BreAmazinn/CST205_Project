@@ -64,7 +64,7 @@ def breedPage(variable):
     breedResponse = requests.get(breed_url, headers=header)
     r3 = breedResponse.json()
 
-    return render_template('animalBreed.html', breed = r3)
+    return render_template('animalBreed.html', type = variable, breed = r3, animals = r1)
 
 # ------ Necessary for the application to open once you run the python file ------
 if __name__ == "__main__":

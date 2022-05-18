@@ -7,7 +7,8 @@
     height: auto;
     width: auto;
 }
-#middle {
-    margin-right: 500px;
+#midcard {
 
+    text-align: center;
+    position: relative;
 }

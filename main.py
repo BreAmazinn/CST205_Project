@@ -10,16 +10,16 @@ from pprint import pprint
 
 
 payload= {
-    'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
-    'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
+    'client_id': 'hXshJldjTfflmGEr2SVfXy3kwNKDEjlcrEwnSOqI57e97nNwpJ',
+    'client_secret': 'zMBePeVDixUqwvAosfrlgtnRZ7D7xj0rHaUxWNVq'
 }
 
 endpoint = 'https://api.petfinder.com/v2/animals'
 
 r = requests.get(endpoint, params = payload)
 
-client_id = "CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU"
-client_pass = "78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI"
+client_id = "hXshJldjTfflmGEr2SVfXy3kwNKDEjlcrEwnSOqI57e97nNwpJ"
+client_pass = "zMBePeVDixUqwvAosfrlgtnRZ7D7xj0rHaUxWNVq"
 data = {"grant_type":"client_credentials"}
 
 auth_url = "https://api.petfinder.com/v2/oauth2/token"
@@ -65,6 +65,16 @@ def breedPage(variable):
     r3 = breedResponse.json()
 
     return render_template('animalBreed.html', type = variable, breed = r3, animals = r1)
+
+
+@app.route('/info/<variable>', methods=['GET', 'POST'])
+def infoPage(variable):
+    info_url = f'https://api.petfinder.com/v2/animals/{variable}'
+
+    infoResponse = requests.get(info_url, headers=header)
+    r4 = infoResponse.json()
+
+    return render_template('info.html', pet = r4)
 
 # ------ Necessary for the application to open once you run the python file ------
 if __name__ == "__main__":

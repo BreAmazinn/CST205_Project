@@ -51,22 +51,22 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Available Pet Breeds</h1>
-            <p class="lead text-muted">Looking for a specific breed? Here are the available breeds to select for this animal</p>
+            <h1 class="fw-light">Available Pet </h1>
+            <p class="lead text-muted">Looking for a pet to adopt? You've come to the right place</p>
 
           </div>
-        </div>
-      </section>
-      
-    <div class="card" style="width: 18rem;">
-        <ul class="list-group list-group-flush">
+     
 
-            {% for i in range(15) %}
-            <li class="list-group-item">{{breed['breeds'][i]['name']}}</li>
-            {% endfor %}
-            
-        </ul>
-      </div>
+         <p> Name: {{pet['animal']['name']}}</p> 
+         <p>Type: {{pet['animal']['type']}}</p>
+         <p>Age: {{pet['animal']['age']}}</p>
+         <p>Gender: {{pet['animal']['gender']}}</p>
+         <p>Size: {{pet['animal']['size']}}</p>
+         <p>Description: {{pet['animal']['description']}}</p>
+         <p>Breed: {{pet['animal']['breeds']['primary']}}</p>
+         <p>Status: {{pet['animal']['status']}}</p>
+
+
 
 
 

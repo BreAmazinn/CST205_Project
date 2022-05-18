@@ -21,8 +21,10 @@ r = requests.get(endpoint, params = payload)
 client_id = "CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU"
 client_pass = "78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI"
 data = {"grant_type":"client_credentials"}
+
 auth_url = "https://api.petfinder.com/v2/oauth2/token"
 api_url = 'https://api.petfinder.com/v2/animals'
+type_url = 'https://api.petfinder.com/v2/types'
 
 
 r = requests.post(auth_url,data=data,auth=(client_id,client_pass))
@@ -36,10 +38,12 @@ header = {
 }
 
 response = requests.get(api_url, headers=header)
-
 r1 = response.json()
 
-pprint(r1)
+typeResponse = requests.get(type_url, headers=header)
+r2 = typeResponse.json()
+
+#pprint(r1)
 
 # ------ Flask Application ------
 app = Flask(__name__)
@@ -49,6 +53,18 @@ app = Flask(__name__)
 def home():
     return render_template('index.html', animals = r1)
 
+@app.route('/animalType')
+def typePage():
+    return render_template('animalTypes.html', type = r2)
+
+@app.route('/breed/<variable>', methods=['GET', 'POST'])
+def breedPage(variable):
+    breed_url = f'https://api.petfinder.com/v2/types/{variable}/breeds'
+
+    breedResponse = requests.get(breed_url, headers=header)
+    r3 = breedResponse.json()
+
+    return render_template('animalBreed.html', breed = r3)
 
 # ------ Necessary for the application to open once you run the python file ------
 if __name__ == "__main__":

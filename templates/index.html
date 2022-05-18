@@ -13,23 +13,33 @@
 
 <body>
  <!----------------------------------------------------------- Navigator Bar ----------------------------------------------------------->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <img  class="csumb__img" src="/static/images/CSUMB.png" width=70 height=70></img>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <h3 class="nav-link active" aria-current="page" ><a href="{{url_for('home')}}">Home</a></h3>
-              </li>
-              <li class="nav-item">
-              <h3 class="nav-link" ><a href="{{url_for('typePage')}}">Animal Types</a></h3>
-              </li>
-
-      </nav>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img  class="csumb__img" src="/static/images/CSUMB.png" width=70 height=70></img>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <h3 class="nav-link active" aria-current="page" ><a href="{{url_for('home')}}">Home</a></h3>
+        </li>
+        <li class="nav-item">
+        <h3 class="nav-link" ><a href="{{url_for('typePage')}}">Animal Types</a></h3>
+        </li>
+      </li>
+      <li class="nav-item">
+        <h3 class="nav-link disabled">Disabled</h3>
+      </li>
+    </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 <!----------------------------------------------------------- Main Interface ----------------------------------------------------------->      
 <main>
     <section class="py-5 text-center container">
@@ -165,7 +175,7 @@
           </div>
           <div class="col">
             <div class="card shadow-sm">
-              <img class="image__img" src="{{animals['animals'][3]['photos'][0]['large']}}" alt="dog">
+              <img class="image__img" src="{{animals['animals'][0]['photos'][0]['large']}}" alt="dog">
               <div class="card-body">
                 <p class="card-text">Pet Description goes here</p>
                 <div class="d-flex justify-content-between align-items-center">

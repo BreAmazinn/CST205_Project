@@ -4,8 +4,15 @@
     filter: brightness(0) invert(1);
 }
 .image__img {
-    height: auto;
+    height: 225px;
     width: auto;
+}
+.image__background {
+    background-image: url(/static/images/Background.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+
+    height:100vh;
 }
 #middle {
     margin-right: 500px;

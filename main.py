@@ -1,3 +1,4 @@
+from calendar import c
 from bs4 import BeautifulSoup
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
@@ -10,16 +11,16 @@ from pprint import pprint
 
 
 payload= {
-    'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
-    'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
+    'client_id': 'hXshJldjTfflmGEr2SVfXy3kwNKDEjlcrEwnSOqI57e97nNwpJ',
+    'client_secret': 'zMBePeVDixUqwvAosfrlgtnRZ7D7xj0rHaUxWNVq'
 }
 
 endpoint = 'https://api.petfinder.com/v2/animals'
 
 r = requests.get(endpoint, params = payload)
 
-client_id = "CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU"
-client_pass = "78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI"
+client_id = "hXshJldjTfflmGEr2SVfXy3kwNKDEjlcrEwnSOqI57e97nNwpJ"
+client_pass = "zMBePeVDixUqwvAosfrlgtnRZ7D7xj0rHaUxWNVq"
 data = {"grant_type":"client_credentials"}
 
 auth_url = "https://api.petfinder.com/v2/oauth2/token"
@@ -40,10 +41,24 @@ header = {
 response = requests.get(api_url, headers=header)
 r1 = response.json()
 
+unofficial_list = []
+for list in r1['animals']:
+    unofficial_list.append(list)
+
+amount = 0
+animalList = []
+for data in unofficial_list:
+    if data['photos'] != []:
+        animalList.append(data)
+        amount = amount + 1
+
+
+
+
+
 typeResponse = requests.get(type_url, headers=header)
 r2 = typeResponse.json()
 
-#pprint(r1)
 
 # ------ Flask Application ------
 app = Flask(__name__)
@@ -66,6 +81,11 @@ def breedPage(variable):
 
     return render_template('animalBreed.html', breed = r3)
 
+@app.route('/information')
+def animalInfo():
+    return render_template('AnimalInfo.html', info = r1)
+
+print("There are ",amount, "animals with photos")
 # ------ Necessary for the application to open once you run the python file ------
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)

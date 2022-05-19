@@ -9,13 +9,17 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Linking the CSS file here -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+
+    <!-- DO NOT REMOVE !!-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!---------------------->
 </head>
 
 <body>
  <!----------------------------------------------------------- Navigator Bar ----------------------------------------------------------->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <img  class="csumb__img" src="/static/images/CSUMB.png" width=70 height=70></img>
+          <a href="{{ url_for('home') }}"> <img  class="csumb__img" src="/static/images/CSUMB.png"> </a>          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,30 +27,14 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <h3 class="nav-link active" aria-current="page" ><a href="{{url_for('home')}}">Home</a></h3>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('typePage') }}"><h3>Resources
+                </h3></a>
               </li>
               <li class="nav-item">
-              <h3 class="nav-link" ><a href="{{url_for('typePage')}}">Animal Types</a></h3>
-              </li>
-              <li class="nav-item dropdown">
-                <h3 class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </h3>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><h4 class="dropdown-item" href="#">Action</h4></li>
-                  <li><h4 class="dropdown-item" href="#">Another action</h4></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><h4 class="dropdown-item" href="#">Something else here</h4></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <h3 class="nav-link disabled">Disabled</h3>
+                <a class="nav-link active" aria-current="page" href="{{ url_for('typePage') }}"><h3>Locations
+                </h3></a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -133,7 +121,8 @@
     </div>
     
   </main>
-
-
+<!-- DO NOT REMOVE -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- ---------------------- -->
 </body>
 </html>

@@ -4,8 +4,8 @@
     filter: brightness(0) invert(1);
 }
 .image__img {
-    height: auto;
-    width: auto;
+    height: 450px;
+    width: 350px;
 }
 #middle {
     margin-right: 500px;

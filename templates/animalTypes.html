@@ -57,14 +57,10 @@
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Available Pet Types</h1>
           <p class="lead text-muted">Big, Medium, or Small, We Have the Right Pet For You!</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p>
         </div>
       </div>
     </section>
-  
+    <!-- Displays  the different animals types available- dogs, cats, horses, birds! -->
     <div class="album py-5 bg-light">
       <div class="container">
   
@@ -74,6 +70,7 @@
             <div class="card shadow-sm">
               <img class="image__img" src="/static/images/cat.jpg">  
               <div class="card-body">
+                <!-- Redirects to the cat breeds avilable> -->
                 <p class="card-text">Adorable {{type['types'][1]['name']}}s</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
@@ -90,6 +87,7 @@
                 <p class="card-text">Lovable {{type['types'][0]['name']}}s</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
+                    <!-- Redirects to the dog breeds avilable> -->
                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('breedPage', variable = type['types'][0]['name'] )}}">Click to {{type['types'][0]['name']}} Breeds </a></button>
                   </div>
                 </div>
@@ -103,6 +101,7 @@
                 <p class="card-text">Loyal {{type['types'][4]['name']}}s</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
+                    <!-- Redirects to the horse breeds avilable -->
                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('breedPage', variable = type['types'][4]['name'] )}}">Click to {{type['types'][4]['name']}} Breeds</a></button>
                   </div>
                 </div>
@@ -117,6 +116,7 @@
                 <p class="card-text">Friendly {{type['types'][5]['name']}}s</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
+                     <!-- Redirects to the bird breeds avilable -->
                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('breedPage', variable = type['types'][5]['name'] )}}">Click to {{type['types'][5]['name']}} Breeds</a></button>
                   </div>
                 </div>

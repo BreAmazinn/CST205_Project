@@ -98,3 +98,7 @@ def infoPage(id):
 # ------ Necessary for the application to open once you run the python file ------
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route('/info/<id>')
+def info(id):
+    return 0

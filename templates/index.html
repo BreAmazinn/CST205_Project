@@ -47,7 +47,7 @@
         <!-- FIRST ANIMAL -->
           <div class="col">
             <div class="card shadow-sm">
-              <a href="{{ url_for('animalInfo', info = animals[0]['id']) }}">
+              <a href="{{ url_for('animalInfo', animalId = animals[0]['id']) }}">
                 <img class="image__img" src="{{ animals[0]['photos'][0]['large'] }}" alt="bird">
               </a>
               <div class="card-body">
@@ -55,69 +55,85 @@
             </div>
           </div>
         <!-- SECOND ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[1]['id']) }}">
+              <img class="image__img" src="{{ animals[1]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- THIRD ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[2]['id']) }}">
+              <img class="image__img" src="{{ animals[2]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- FOURTH ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[3]['id']) }}">
+              <img class="image__img" src="{{ animals[3]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- FIFTH ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[4]['id']) }}">
+              <img class="image__img" src="{{ animals[4]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- SIXTH ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[5]['id']) }}">
+              <img class="image__img" src="{{ animals[5]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- SEVENTH ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[6]['id']) }}">
+              <img class="image__img" src="{{ animals[6]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- EIGHT ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[7]['id']) }}">
+              <img class="image__img" src="{{ animals[7]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
         <!-- NINETH ANIMAL -->
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595C"></rect><text x="50%" y="50%" fill="#ECEEEF" dy=".3em">Thumbnail</text></svg>
-              <div class="card-body">
-              </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <a href="{{ url_for('animalInfo', animalId = animals[8]['id']) }}">
+              <img class="image__img" src="{{ animals[8]['photos'][0]['large'] }}" alt="bird">
+            </a>
+            <div class="card-body">
             </div>
           </div>
+        </div>
 
       </div>
     </div>

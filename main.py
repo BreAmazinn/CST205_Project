@@ -51,8 +51,15 @@ official_list = []
 for data in unofficial_list:
     if data['photos'] != []:
         official_list.append(data)
+    elif data['photos'] == None:
+        print(" ")
 
 
+# pprint(official_list[0])
+for x in official_list:
+    print(x['photos'])
+
+# pprint(official_list[0]['photos'])
 secondJson = requests.get(api_url, headers=header)
 r2 = secondJson.json()
 
@@ -111,5 +118,5 @@ def animalInfo():
 #     print(x['name'])
 
 # ------ Necessary for the application to open once you run the python file ------
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)

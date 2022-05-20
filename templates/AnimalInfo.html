@@ -42,22 +42,22 @@
               <div>
                 <div class="w3-card w3-margin w3-margin-top">
                   <!-- Image of the animal one is intrested to adopt -->
-                <img src="{{id['animal']['photos'][0]['large']}}" alt="" style="width:100%">
+                  <p class="card-text"> <img src= "{{info['animal']['photos'][0]['large']}}", width="100%", height="100%" ></p>
                 </div>
                 </div>
                </div> 
                 <div class="col">
                   <div class="w3-container w3-white">
                     <!-- Description of the animal one is intrested to adopt -->
-                <p class="card-text"><b>Name:</b> {{id['animal']['name']}}</p>
-                <p class="card-text"><b>Type:</b> {{id['animal']['type']}}</p>
-                <p class="card-text"><b>Breed:</b> {{id['animal']['breeds']['primary']}}</p>
-                <p class="card-text"><b>Color:</b> {{id['animal']['colors']['primary']}}</p>
-                <p class="card-text"><b>Age:</b> {{id['animal']['age']}}</p>
-                <p class="card-text"><b>Gender:</b> {{id['animal']['gender']}}</p>
-                <p class="card-text"><b>About {{id['animal']['name']}} :</b>  {{id['animal']['tags']}}</p>
-                <p class="card-text"><b>More About {{id['animal']['name']}}:</b>  {{id['animal']['description']}}</p>
-                <p class="card-text"><b>Find {{id['animal']['name']}}:</b> <a href="{{id['animal']['url']}}">{{id['animal']['url']}}</a></p>
+                <p class="card-text"><b>Name:</b> {{info['animal']['name']}}</p>
+                <p class="card-text"><b>Type:</b> {{info['animal']['type']}}</p>
+                <p class="card-text"><b>Color:</b> {{info['animal']['colors']['primary']}}</p>
+                <p class="card-text"><b>Age:</b> {{info['animal']['age']}}</p>
+                <p class="card-text"><b>Gender:</b> {{info['animal']['gender']}}</p>
+                <p class="card-text"><b>About {{info['animal']['name']}} :</b>  {{info['animal']['tags']}}</p>
+                <p class="card-text"><b>More About {{info['animal']['name']}}:</b>  {{info['animal']['description']}}</p>
+                <p class="card-text"><b>Find {{info['animal']['name']}}:</b> <a href="{{info['animal']['url']}}">{{info['animal']['url']}}</a></p>
+
                 </div>
                 </div>
                 </div>

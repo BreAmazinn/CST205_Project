@@ -16,7 +16,7 @@
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <img  class="csumb__img" src="/static/images/CSUMB.png" width=70 height=70></img>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,11 +28,15 @@
         <li class="nav-item">
         <h3 class="nav-link" ><a href="{{url_for('typePage')}}">Animal Types</a></h3>
         </li>
-      </li>
-      <li class="nav-item">
-        <h3 class="nav-link disabled">Disabled</h3>
-      </li>
-    </ul>
+        <li class="nav-item dropdown">
+          <h3 class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </h3>
+        </li>
+        <li class="nav-item">
+          <h3 class="nav-link disabled">Disabled</h3>
+        </li>
+      </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -60,17 +64,18 @@
       <div class="container">
   
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <!-- Displays 3 animals that are ready to be adopted, with their image and name -->
+          <!-- Displays 9 animals that are ready to be adopted, with their image and name -->
 
           <div class="col">
             <div class="card shadow-sm">
-              <img class="image__img" src="{{animals['animals'][0]['photos'][0]['large']}}" alt="Animal Image"> 
+              <img class="image__img" src="{{animals[0]['photos'][0]['large']}}" alt="Animal Image"> 
               <div class="card-body">
-                <p class="card-text"><b>Name: {{animals['animals'][0]['name']}}</b></p>
+                <p class="card-text"><b>Name: {{animals[0]['name']}}</b></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <!-- Redirects to the pet description page(info.html) when view button is clicked -->
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('infoPage', id= animals['animals'][0]['id'])}}"> View </a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[0]['id'])}}"> View </a></button>
+                    
                   </div>
                 </div>
               </div>
@@ -80,12 +85,12 @@
           
           <div class="col">
             <div class="card shadow-sm">
-              <img class="image__img" src="{{animals['animals'][0]['photos'][0]['large']}}" alt="Animal Image"> 
+              <img class="image__img" src="{{animals[1]['photos'][0]['large']}}" alt="Animal Image"> 
               <div class="card-body">
-                <p class="card-text"><b>Name: {{animals['animals'][1]['name']}}</b></p>
+                <p class="card-text"><b>Name: {{animals[1]['name']}}</b></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('infoPage', id= animals['animals'][1]['id'])}}"> View </a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[1]['id'])}}"> View </a></button>
                   </div>
                 </div>
               </div>
@@ -95,18 +100,78 @@
 
           <div class="col">
             <div class="card shadow-sm">
-              <img class="image__img" src="{{animals['animals'][0]['photos'][0]['large']}}" alt="Animal Image"> 
+              <img class="image__img" src="{{animals[2]['photos'][0]['large']}}" alt="Animal Image"> 
               <div class="card-body">
-                <p class="card-text"><b>Name: {{animals['animals'][2]['name']}}</b></p>
+                <p class="card-text"><b>Name: {{animals[2]['name']}}</b></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('infoPage', id= animals['animals'][2]['id'])}}"> View </a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[2]['id'])}}"> View </a></button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="image__img" src="{{animals[3]['photos'][0]['large']}}" alt="Animal Image"> 
+              <div class="card-body">
+                <p class="card-text"><b>Name: {{animals[3]['name']}}</b></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                     
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[3]['id'])}}"> View </a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="image__img" src="{{animals[4]['photos'][0]['large']}}" alt="Animal Image"> 
+              <div class="card-body">
+                <p class="card-text"><b>Name: {{animals[4]['name']}}</b></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[4]['id'])}}"> View </a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="image__img" src="{{animals[5]['photos'][0]['large']}}" alt="Animal Image"> 
+              <div class="card-body">
+                <p class="card-text"><b>Name: {{animals[5]['name']}}</b></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                     
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[5]['id'])}}"> View </a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <img class="image__img" src="{{animals[6]['photos'][0]['large']}}" alt="Animal Image"> 
+              <div class="card-body">
+                <p class="card-text"><b>Name: {{animals[6]['name']}}</b></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                     
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href= "{{url_for('animalInfo', variable= animals[6]['id'])}}"> View </a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

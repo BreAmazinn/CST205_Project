@@ -45,19 +45,34 @@ unofficial_list = []
 for list in r1['animals']:
     unofficial_list.append(list)
 
-amount = 0
-animalList = []
+
+official_list = []
+
 for data in unofficial_list:
     if data['photos'] != []:
-        animalList.append(data)
-        amount = amount + 1
+        official_list.append(data)
 
+
+secondJson = requests.get(api_url, headers=header)
+r2 = secondJson.json()
 
 
 
 
 typeResponse = requests.get(type_url, headers=header)
-r2 = typeResponse.json()
+r3 = typeResponse.json()
+
+# other = []
+# for list in r2['animals']:
+#     other.append(list)
+
+
+# secondOfficialList = []
+
+
+# for x in other:
+#     if x['photos'] != []:
+#         official_list.append(x)
 
 
 # ------ Flask Application ------
@@ -66,26 +81,35 @@ app = Flask(__name__)
 @app.route('/home')
 @app.route('/')
 def home():
-    return render_template('index.html', animals = r1)
+    return render_template('index.html', animals = official_list)
 
-@app.route('/animalType')
-def typePage():
-    return render_template('animalTypes.html', type = r2)
+# @app.route('/animalType')
+# def typePage():
+#     return render_template('animalTypes.html', type = off)
 
-@app.route('/breed/<variable>', methods=['GET', 'POST'])
-def breedPage(variable):
-    breed_url = f'https://api.petfinder.com/v2/types/{variable}/breeds'
+# @app.route('/breed/<variable>', methods=['GET', 'POST'])
+# def breedPage(variable):
+#     breed_url = f'https://api.petfinder.com/v2/types/{variable}/breeds'
 
-    breedResponse = requests.get(breed_url, headers=header)
-    r3 = breedResponse.json()
+#     breedResponse = requests.get(breed_url, headers=header)
+#     r3 = breedResponse.json()
 
-    return render_template('animalBreed.html', breed = r3)
+#     return render_template('animalBreed.html', breed = r2)
 
 @app.route('/information')
 def animalInfo():
-    return render_template('AnimalInfo.html', info = r1)
+    return render_template('AnimalInfo.html', info = official_list)
 
-print("There are ",amount, "animals with photos")
+# print("There are ",len(official_list), "animals with photos")
+# another = []
+# for x in official_list:
+#     if x['name'] not in another:
+#         another.append(x)
+
+
+# for x in another:
+#     print(x['name'])
+
 # ------ Necessary for the application to open once you run the python file ------
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)

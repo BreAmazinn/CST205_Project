@@ -6,10 +6,11 @@ Authors: Breanna Holloman, Jaime Placios, Sayali Badole, Richard Lieu
 Date: 5/19/2022
 Github Link: https://github.com/BreAmazinn/CST205_Project.git
 ----
-Breanna Holloman:
-Jaime Placios:
-Sayali Badole: info.html page, styling and documentations
+Breanna Holloman: Finding an API, getting responses and routing. Set up animal type page
+Jaime Placios: Function to only grab animals with a certain criteria, Navigation Bar, 
+Sayali Badole: AnimalInfo..html page, webpage styling and documentations, AnimalInfo.html routing
 Richard Lieu:
+As a team: Our group worked more as a team - index.html, fixing the bugs etc was done over weekly meetings.
 --
 Description of important code blocks:
 > In main.py a pet adoption API is extracted and stored in a .json file. Flask is used to display our website homepage(index.html)
@@ -28,6 +29,7 @@ from PIL import Image
 import json
 import requests
 from pprint import pprint
+#API EXTRACTION
 payload= {
     'client_id': 'CCLQp88b1h14vSALFxMmavytjKIrqwuDQ6AmTLPUD9Q6bzvkHU',
     'client_secret': '78p93R1TiJLBQZoap48sTF3G6rUT6JGQPAku9DoI'
@@ -41,6 +43,7 @@ auth_url = "https://api.petfinder.com/v2/oauth2/token"
 api_url = 'https://api.petfinder.com/v2/animals'
 type_url = 'https://api.petfinder.com/v2/types'
 r = requests.post(auth_url,data=data,auth=(client_id,client_pass))
+
 data = r.json()
 access_token = data['access_token']
 header = {
@@ -48,11 +51,13 @@ header = {
     'Authorization': 'Bearer ' + access_token
 }
 response = requests.get(api_url, headers=header)
+#MAIN JSON FILE WITH ALL THE DATA
 r1 = response.json()
 i=0
 unofficial_list = []
 for list in r1['animals']:
     unofficial_list.append(list)
+#PREPROCESSED LIST OF PETS WITH PICTURES ON DISPLAY
 official_list = []
 for data in unofficial_list:
     if data['photos'] != []:
@@ -64,23 +69,19 @@ r2 = secondJson.json()
 typeResponse = requests.get(type_url, headers=header)
 r3 = typeResponse.json()
 
-# other = []
-# for list in r2['animals']:
-#     other.append(list)
-# secondOfficialList = []
-# for x in other:
-#     if x['photos'] != []:
-#         official_list.append(x)
 # ------ Flask Application ------
 app = Flask(__name__)
+# ROUTE TO THE HOMEPAGE
 @app.route('/home')
 @app.route('/')
 def home():
     return render_template('index.html', animals = official_list)  
+#ROUTE TO THE DIFFERENT ANIMAL TYPES AVAILABLE FOR ADOPTION PAGE
 @app.route('/animalType')
 def typePage():
     return render_template('animalTypes.html', type = r3)
 
+#ROUTE TO DIFFERENT TYPES OF BREEDS AVAILABLE FOR ADOPTION
 @app.route('/breed/<variable>', methods=['GET', 'POST'])
 def breedPage(variable):
     breed_url = f'https://api.petfinder.com/v2/types/{variable}/breeds'
@@ -88,7 +89,7 @@ def breedPage(variable):
     r3 = breedResponse.json()
     return render_template('animalBreed.html', type = variable, breed = r3, animals = r1)
 
-
+#DETAILED PET DESCRIPTION OF A PET
 @app.route('/information/<variable>', methods=['GET','POST'])
 def animalInfo(variable):
     info_url = f'https://api.petfinder.com/v2/animals/{variable}'
@@ -96,19 +97,7 @@ def animalInfo(variable):
     r4 = infoResponse.json()
     return render_template('AnimalInfo.html', info = r4) 
 
-# @app.route('/information', methods=['GET','POST'])
-# def animalInfo():
-#     return render_template('AnimalInfo.html', info = official_list) 
-# print("There are ",len(official_list), "animals with photos")
-# another = []
-# for x in official_list:
-#     if x['name'] not in another:
-#         another.append(x)
-# for x in another:
-#     print(x['name'])
 # ------ Necessary for the application to open once you run the python file ------
-#pprint(official_list[0])
 
-#pprint(r1)
 if __name__ == "__main__":
     app.run(debug=True)

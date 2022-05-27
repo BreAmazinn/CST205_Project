@@ -27,6 +27,12 @@ The project's intial purpose was to let the user find pets around the world and 
  - [oAuth Documentation](https://oauth.net/2/)
  - [Youtube](https://www.youtube.com/)
 
+## How to run the code
+  1. Go to branch_s to access the final and completed project
+  2. All the important packages needs to be installed beforehand- flask, Bootstrap, json.
+  3. To run the program first activate the virutal enviroment in powershell(windows), perform a flask run on the main.py (of branch_s) file and assign debug=1
+  4. To make it more accessible to reach the website, we have added a code to directly display the webpage. Run the main.py in Visual Studio Code and follow the link displayed. 
+
 
 ## FAQ
 
